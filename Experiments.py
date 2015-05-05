@@ -3,14 +3,14 @@ Experiment_1 = {'experiment name': "Strength vs photosyntesis capacity",
                                'number_of_organisms': 50,
                                'genes': {
                                      'strength': {
-						'type': 'built-in function',
-						'name': 'gaussian',
-						'mean': 10, 
-						'variance': 2},
+                                         'type': 'built-in function',
+                                         'name': 'gaussian',
+                                         'mean': 10, 
+                                         'variance': 2},
                                      'photosynthesis_capacity': {
-						'type': 'built-in function',
-						'name': 'uniform distribution',
-						'interval': [10, 30] }},
+                                         'type': 'built-in function',
+                                         'name': 'uniform distribution',
+                                         'interval': [10, 30] }},
                                'status': {
                                      'energy_reserve': 100.0} 
                               },

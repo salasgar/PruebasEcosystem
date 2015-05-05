@@ -1,5 +1,6 @@
 import pygame
 from pygame.locals import *
+from pygame import gfxdraw
 from random import random
 from time import sleep  # To remove
 
@@ -47,3 +48,35 @@ class GUI(object):
 
     def delete(self):
         pygame.quit()
+
+class GUI_functions(object):
+    def __init__(self, size_x=500, size_y=500, zoom = 10):
+        self.size = (size_x, size_y)
+        self.axes_center = (size_x // 2, 3 * size_y // 4)
+        self.zoom = zoom
+        pygame.init()
+        self.windowSurface = pygame.display.set_mode(self.size, 0, 32)
+        pygame.display.set_caption('Functions')
+
+    def draw_function(self, f, color = (200, 200, 200)):
+        size_x, size_y = self.size
+        axes_center_x, axes_center_y = self.axes_center
+        zoom = self.zoom
+        for x_ in range(size_x):
+            x = float(x_ - axes_center_x)/zoom
+            y = f(x)
+            y_ = axes_center_y - int(y*zoom)
+            if (y_ > 0) and (y_ < size_y) and (x_ > 0) and (x_ < size_x):
+                gfxdraw.pixel(self.windowSurface, x_, y_, color)
+        pygame.display.update()
+    
+    def handle_events(self):
+        pass  # Get events and modify Ecosystem accordingly
+
+    def delete(self):
+        pygame.quit()
+        
+        
+        
+        
+        
